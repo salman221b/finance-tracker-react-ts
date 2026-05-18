@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -27,29 +27,34 @@ const TransactionForm = () => {
     register,
     handleSubmit,
     reset,
-
     formState: { errors },
   } = useForm<TransactionFormData>({
-    resolver:
-      zodResolver(
-        transactionSchema
-      ),
+    resolver: zodResolver(
+      transactionSchema
+    ),
+
+    defaultValues: {
+      title: "",
+      amount: undefined,
+      category: "",
+      type: "expense",
+    },
   });
 
-  const onSubmit = (
-    data: TransactionFormData
-  ) => {
-    addTransaction({
-      id: crypto.randomUUID(),
+  const onSubmit:
+    SubmitHandler<TransactionFormData> =
+    (data) => {
+      addTransaction({
+        id: crypto.randomUUID(),
 
-      ...data,
+        ...data,
 
-      createdAt:
-        new Date().toISOString(),
-    });
+        createdAt:
+          new Date().toISOString(),
+      });
 
-    reset();
-  };
+      reset();
+    };
 
   return (
     <form
@@ -69,7 +74,13 @@ const TransactionForm = () => {
       </p>
 
       <input
-        {...register("amount")}
+        type="number"
+        {...register(
+          "amount",
+          {
+            valueAsNumber: true,
+          }
+        )}
         placeholder="Amount"
         className="w-full p-3 rounded bg-slate-800 mb-1"
       />
@@ -79,7 +90,9 @@ const TransactionForm = () => {
       </p>
 
       <select
-        {...register("category")}
+        {...register(
+          "category"
+        )}
         className="w-full p-3 rounded bg-slate-800 mb-3"
       >
         <option value="">
@@ -87,11 +100,20 @@ const TransactionForm = () => {
         </option>
 
         {categories.map(
-          (category) => (
+          (
+            category
+          ) => (
             <option
-              key={category}
+              key={
+                category
+              }
+              value={
+                category
+              }
             >
-              {category}
+              {
+                category
+              }
             </option>
           )
         )}
@@ -110,9 +132,7 @@ const TransactionForm = () => {
         </option>
       </select>
 
-      <button
-        className="w-full mt-5 p-3 rounded bg-blue-600"
-      >
+      <button className="w-full mt-5 p-3 rounded bg-blue-600">
         Add Transaction
       </button>
     </form>
