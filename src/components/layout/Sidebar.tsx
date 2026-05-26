@@ -92,7 +92,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
                   rounded-lg
                   transition
 
-                  ${isActive ? "bg-blue-600" : "hover:bg-slate-800"}
+                  ${isActive ? "bg-blue-300 dark:bg-blue-600" : "hover:bg-slate-300 dark:hover:bg-slate-700"}
                 `
               }
             >
