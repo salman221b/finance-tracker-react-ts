@@ -4,9 +4,7 @@ interface Props {
   onClick: () => void;
 }
 
-const FloatingAddButton = ({
-  onClick,
-}: Props) => {
+const FloatingAddButton = ({ onClick }: Props) => {
   return (
     <button
       onClick={onClick}
@@ -32,7 +30,7 @@ const FloatingAddButton = ({
       z-40
     "
     >
-      <Plus size={28} />
+      <Plus size={28} className="text-white" />
     </button>
   );
 };

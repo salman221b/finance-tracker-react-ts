@@ -23,7 +23,7 @@ const MonthlyBarChart = () => {
     );
 
   return (
-    <div className="bg-slate-900 p-5 rounded-2xl">
+    <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl">
       <h2 className="text-xl font-bold mb-5">
         Monthly Expenses
       </h2>

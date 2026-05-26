@@ -50,7 +50,7 @@ const TransactionList = () => {
     );
 
   return (
-    <div className="bg-slate-900 rounded-2xl p-5">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl p-5">
       <h2 className="text-xl font-bold mb-5">
         Transactions
       </h2>
@@ -76,7 +76,7 @@ const TransactionList = () => {
               className="
               flex
               justify-between
-              bg-slate-800
+              bg-white dark:bg-slate-900
               p-4
               rounded-xl
               "

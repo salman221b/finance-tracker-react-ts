@@ -8,13 +8,8 @@ interface ModalProps {
   children: ReactNode;
 }
 
-const Modal = ({
-  isOpen,
-  onClose,
-  children,
-}: ModalProps) => {
-  if (!isOpen)
-    return null;
+const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+  if (!isOpen) return null;
 
   return (
     <div
@@ -31,16 +26,14 @@ const Modal = ({
     >
       <div
         className="
-        bg-slate-900
+        bg-white dark:bg-slate-900
         rounded-2xl
         p-6
         w-full
         max-w-md
         mx-4
       "
-        onClick={(e) =>
-          e.stopPropagation()
-        }
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>

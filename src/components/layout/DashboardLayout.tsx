@@ -9,25 +9,38 @@ interface DashboardLayoutProps {
   children: ReactNode;
 }
 
-const DashboardLayout = ({
-  children,
-}: DashboardLayoutProps) => {
-  const [isOpen, setIsOpen] =
-    useState(false);
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-slate-950">
-      <Sidebar
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
+    <div
+      className="
+  flex
+  min-h-screen
 
+  bg-slate-100
+  dark:bg-slate-950
+
+  transition-colors
+"
+    >
+      {" "}
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="flex-1">
-        <Navbar
-          setIsOpen={setIsOpen}
-        />
+        <Navbar setIsOpen={setIsOpen} />
 
-        <main className="p-6">
+        <main
+          className="
+  p-6
+
+  bg-slate-100
+  dark:bg-slate-950
+
+  min-h-screen
+
+  transition-colors
+"
+        >
           {children}
         </main>
       </div>

@@ -6,25 +6,17 @@ interface StatCardProps {
   icon: LucideIcon;
 }
 
-const StatCard = ({
-  title,
-  amount,
-  icon: Icon,
-}: StatCardProps) => {
+const StatCard = ({ title, amount, icon: Icon }: StatCardProps) => {
   return (
-    <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800">
+    <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border-slate-200 dark:border-slate-800">
       <div className="flex justify-between items-center">
         <div>
-          <p className="text-slate-400">
-            {title}
-          </p>
+          <p className="text-slate-400">{title}</p>
 
-          <h3 className="text-2xl font-bold mt-2">
-            {amount}
-          </h3>
+          <h3 className="text-2xl font-bold mt-2">{amount}</h3>
         </div>
 
-        <div className="bg-slate-800 p-3 rounded-xl">
+        <div className="bg-white dark:bg-slate-900 p-3 rounded-xl">
           <Icon />
         </div>
       </div>
