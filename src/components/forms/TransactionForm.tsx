@@ -16,8 +16,11 @@ const categories = [
   "Shopping",
   "Bills",
 ];
+interface Props {
+  onSuccess?: () => void;
+}
 
-const TransactionForm = () => {
+const TransactionForm = ({ onSuccess }: Props) => {
   const addTransaction =
     useTransactionStore(
       (state) => state.addTransaction
@@ -54,6 +57,7 @@ const TransactionForm = () => {
       });
 
       reset();
+      onSuccess?.();
     };
 
   return (
